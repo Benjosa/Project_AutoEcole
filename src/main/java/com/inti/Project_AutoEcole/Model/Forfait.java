@@ -1,11 +1,14 @@
 package com.inti.Project_AutoEcole.Model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -27,9 +30,8 @@ public class Forfait
 	private @NonNull Double montant;
 	private @NonNull String contenu;
 	
-	@ManyToOne
-	@JoinColumn(name = "idAutoEcole")
-	AutoEcole auto_Ecole;
+	@OneToMany(mappedBy = "forfait")
+	List<Client> listeClient;
 	
 
 }

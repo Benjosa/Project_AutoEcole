@@ -27,6 +27,9 @@ public class Role
 	private @NonNull String nomRole;
 	
 	@OneToMany(mappedBy = "role")
-	List<Utilisateur> listeUtilisateur;
+	List<Formateur> listeFormateur;
+	
+	@OneToMany(mappedBy = "role")
+	List<Client> listeClient;
 
 }
