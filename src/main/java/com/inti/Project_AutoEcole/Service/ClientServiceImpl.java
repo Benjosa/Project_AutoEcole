@@ -16,7 +16,7 @@ public class ClientServiceImpl implements ClientService
 	ClientRepository clienRepository;
 
 	@Override
-	public void saveAdmin(Client admin) 
+	public void saveClient(Client admin) 
 	{
 		
 		clienRepository.save(admin);
@@ -24,28 +24,28 @@ public class ClientServiceImpl implements ClientService
 	}
 
 	@Override
-	public List<Client> getAllAdmin() 
+	public List<Client> getAllClient() 
 	{
 		
 		return clienRepository.findAll();
 	}
 
 	@Override
-	public void updateAdmin(Client admin) 
+	public void updateClient(Client admin) 
 	{
 		clienRepository.save(admin);
 		
 	}
 
 	@Override
-	public Client getAdmin(int id) 
+	public Client getCLient(int id) 
 	{
 		
 		return clienRepository.getReferenceById(id);
 	}
 
 	@Override
-	public void deleteAdmin(int id) 
+	public void deleteClient(int id) 
 	{
 		clienRepository.deleteById(id);
 		
