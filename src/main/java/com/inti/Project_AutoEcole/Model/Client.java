@@ -1,5 +1,6 @@
 package com.inti.Project_AutoEcole.Model;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Entity
 @Table
@@ -24,4 +26,7 @@ public class Client extends Utilisateur
 	inverseJoinColumns = @JoinColumn(name="idFormateur"))
 	List<Formateur> listeFormateur;
 
+
+
+	
 }

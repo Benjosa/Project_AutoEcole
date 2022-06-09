@@ -25,14 +25,18 @@ public abstract class Utilisateur
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected int id;
-	protected @NonNull String nom;
-	protected @NonNull String prenom;
-	protected @NonNull Date dateNaissance;
-	protected @NonNull String mail;
-	protected @NonNull String adresse;
+	private @NonNull String nom;
+	private @NonNull String prenom;
+	private @NonNull Date dateNaissance;
+	private @NonNull String mail;
+	private @NonNull String adresse;
 	
 	@ManyToOne
 	@JoinColumn(name = "idRole")
 	Role role;
+	
+	@ManyToOne
+	@JoinColumn(name = "idAutoEcole")
+	AutoEcole auto_Ecole;
 
 }
