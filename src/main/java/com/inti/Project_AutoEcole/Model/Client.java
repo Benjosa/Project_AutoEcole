@@ -34,6 +34,7 @@ public class Client
 	private @NonNull String mail;
 	private @NonNull String adresse;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "idRole")
 	Role role;
