@@ -24,7 +24,7 @@ public class ClientController {
 	@Autowired
 	ClientService us;
 	
-	@GetMapping("/utilisateurs")
+	@GetMapping("/clients")
 	public ResponseEntity<List<Client>> getAllClients()
 	{
 		return new ResponseEntity<List<Client>>(us.getAllClient(),HttpStatus.OK);

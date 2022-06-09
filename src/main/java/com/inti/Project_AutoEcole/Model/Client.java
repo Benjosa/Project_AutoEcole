@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,11 +40,13 @@ public class Client
 	@JoinColumn(name = "idRole")
 	Role role;
 	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "Formateur_Client", joinColumns = @JoinColumn(name="idClient"),
 	inverseJoinColumns = @JoinColumn(name="idFormateur"))
 	List<Formateur> listeFormateur;
 	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "client_courscode", joinColumns = @JoinColumn(name="idClient"),
 	inverseJoinColumns = @JoinColumn(name="idCoursCode"))

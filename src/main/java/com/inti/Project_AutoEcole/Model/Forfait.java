@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,6 +32,7 @@ public class Forfait
 	private @NonNull Double montant;
 	private @NonNull String contenu;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "forfait")
 	List<Client> listeClient;
 	
