@@ -3,6 +3,7 @@ package com.inti.Project_AutoEcole.Model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,12 +18,13 @@ import lombok.NonNull;
 @NoArgsConstructor @AllArgsConstructor
 public class AutoEcole 
 {
+	@Id
 	private @NonNull String nom;
 	
-	@OneToMany(mappedBy = "autoEcole")
+	@OneToMany(mappedBy = "auto_Ecole")
 	List<Vehicule> listeVehicule;
 	
-	@OneToMany(mappedBy = "autoE")
+	@OneToMany(mappedBy = "auto_Ecole")
 	List<Forfait> listeForfait;
 	
 	@OneToMany(mappedBy = "auto_Ecole")

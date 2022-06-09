@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -23,5 +24,8 @@ public class Client extends Utilisateur
 	@JoinTable(name = "Formateur_Client", joinColumns = @JoinColumn(name="idClient"),
 	inverseJoinColumns = @JoinColumn(name="idFormateur"))
 	List<Formateur> listeFormateur;
+	@OneToOne
+	@JoinColumn(name = "IdSeance")
+	SeanceConduite seanceConduite;
 
 }
