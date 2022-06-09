@@ -17,6 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Table
@@ -50,34 +51,6 @@ public class Client
 	@ManyToOne
 	@JoinColumn(name = "idForfait")
 	Forfait forfait;
-	
-	
-	
-
-
-	
-	@ManyToMany
-	@JoinTable(name = "client_courscode", joinColumns = @JoinColumn(name="idClient"),
-	inverseJoinColumns = @JoinColumn(name="idCoursCode"))
-	List<CoursCode> listeCode;
-	
-	@ManyToOne
-	@JoinColumn(name = "idForfait")
-	Forfait forfait;
-	
-	
-	
-	
-	@ManyToMany
-	@JoinTable(name = "client_courscode", joinColumns = @JoinColumn(name="idClient"),
-	inverseJoinColumns = @JoinColumn(name="idCoursCode"))
-	List<CoursCode> listeCode;
-	
-	@ManyToOne
-	@JoinColumn(name = "idForfait")
-	Forfait forfait;
-	
-	
 	
 
 }

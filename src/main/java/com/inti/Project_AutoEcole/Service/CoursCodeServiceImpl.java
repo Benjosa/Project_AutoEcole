@@ -15,16 +15,15 @@ public class CoursCodeServiceImpl implements CoursCodeService{
 	CoursCodeRepository coursCodeRepository;
 	
 	@Override
-	public void saveCour(CoursCode cc)
+	public void saveCour(CoursCode coursCode)
 	{
-		coursCodeRepository.save(cc);
-		
+		coursCodeRepository.save(coursCode);
 	}
 
 	@Override
-	public void updateCour(CoursCode cc) 
+	public void updateCour(CoursCode coursCode) 
 	{
-		coursCodeRepository.save(cc);
+		coursCodeRepository.save(coursCode);
 	}
 
 	@Override
@@ -35,14 +34,12 @@ public class CoursCodeServiceImpl implements CoursCodeService{
 
 	@Override
 	public List<CoursCode> getCours() {
-		// TODO Auto-generated method stub
-		return null;
+		return coursCodeRepository.findAll();
 	}
 
 	@Override
 	public CoursCode getCour(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return coursCodeRepository.getById(id);
 	}
 	
 }
