@@ -2,8 +2,8 @@ package com.inti.Project_AutoEcole.Controller;
 
 import java.util.List;
 
-import com.inti.Project_AutoEcole.Model.Utilisateur;
-import com.inti.Project_AutoEcole.Service.UtilisateurService;
+import com.inti.Project_AutoEcole.Model.Client;
+import com.inti.Project_AutoEcole.Service.ClientService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,32 +19,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:4200"})
-public class UtilisateurController {
+public class ClientController {
 
 	@Autowired
-	UtilisateurService us;
+	ClientService us;
 	
 	@GetMapping("/utilisateurs")
-	public ResponseEntity<List<Utilisateur>> getAllUtilisateurs()
+	public ResponseEntity<List<Client>> getAllClients()
 	{
-		return new ResponseEntity<List<Utilisateur>>(us.getAllUtilisateurs(),HttpStatus.OK);
+		return new ResponseEntity<List<Client>>(us.getAllClient(),HttpStatus.OK);
 	}
 	
-	@PostMapping("/saveUtilisateur")
-	public ResponseEntity<Utilisateur> saveUtilisateur(@RequestBody Utilisateur u)
+	@PostMapping("/saveClient")
+	public ResponseEntity<Client> saveClient(@RequestBody Client u)
 	{
-		return new ResponseEntity<Utilisateur>(us.saveUtilisateur(u),HttpStatus.CREATED);
+		return new ResponseEntity<Client>(us.saveClient(u),HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("/deleteUtilisateur/{id}")
-	public void deleteUtilisateur(@PathVariable int id)
+	@DeleteMapping("/deleteClient/{id}")
+	public void deleteClient(@PathVariable int id)
 	{
-		us.delete(id);
+		us.deleteClient(id);
 	}
 	
-	@PutMapping("/updateUtilisateur")
-	public Utilisateur updateUtilisateur(@RequestBody Utilisateur u)
+	@PutMapping("/updateClient")
+	public Client updateClient(@RequestBody Client u)
 	{
-		return us.updateUtilisateur(u);
+		return us.updateClient(u);
 	}
 }
