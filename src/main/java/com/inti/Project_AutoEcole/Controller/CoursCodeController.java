@@ -4,7 +4,6 @@ import java.util.List;
 
 
 import com.inti.Project_AutoEcole.Model.CoursCode;
-import com.inti.Project_AutoEcole.Repository.CoursCodeRepository;
 import com.inti.Project_AutoEcole.Service.CoursCodeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +25,6 @@ public class CoursCodeController {
 	@Autowired
 	CoursCodeService coursCodeService;
 	
-	@Autowired
-	CoursCodeRepository coursCodeRepository;
 	
 	@GetMapping("/CoursCode")
 	@CrossOrigin(origins = "*")
