@@ -15,21 +15,21 @@ public class CoursCodeServiceImpl implements CoursCodeService{
 	CoursCodeRepository coursCodeRepository;
 	
 	@Override
-	public void saveCour(CoursCode coursCode)
+	public CoursCode saveCour(CoursCode coursCode)
 	{
-		coursCodeRepository.save(coursCode);
+		return coursCodeRepository.save(coursCode);
 	}
 
 	@Override
-	public void updateCour(CoursCode coursCode) 
+	public CoursCode updateCour(CoursCode coursCode) 
 	{
-		coursCodeRepository.save(coursCode);
+		return coursCodeRepository.save(coursCode);
 	}
 
 	@Override
 	public void deleteCour(int id) 
 	{
-		coursCodeRepository.deleteById(null);
+		coursCodeRepository.deleteById(id);
 	}
 
 	@Override

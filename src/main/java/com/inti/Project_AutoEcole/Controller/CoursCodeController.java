@@ -46,11 +46,11 @@ public class CoursCodeController {
 	@PostMapping("/saveCour")
 	public ResponseEntity<CoursCode>saveCour(@RequestBody CoursCode coursCode)
 	{
-		return new ResponseEntity<CoursCode>(coursCodeRepository.save(coursCode), HttpStatus.CREATED);
+		return new ResponseEntity<CoursCode>(coursCodeService.saveCour(coursCode), HttpStatus.CREATED);
 	}
 	
 	@DeleteMapping("/deleteCour/{id}")
-	public void deleteLivre(@PathVariable int id)
+	public void deleteCour(@PathVariable int id)
 	{
 		coursCodeService.deleteCour(id);
 	}
@@ -59,6 +59,6 @@ public class CoursCodeController {
 	@PutMapping("/updateCour")
 	public CoursCode updateCour(@RequestBody CoursCode coursCode)
 	{
-		return coursCodeRepository.save(coursCode);
+		return coursCodeService.updateCour(coursCode);
 	}
 }

@@ -6,9 +6,9 @@ import com.inti.Project_AutoEcole.Model.CoursCode;
 
 public interface CoursCodeService {
 
-	void saveCour(CoursCode coursCode);
+	CoursCode saveCour(CoursCode coursCode);
 	
-	void updateCour (CoursCode coursCode);
+	CoursCode updateCour (CoursCode coursCode);
 	
 	void deleteCour(int id);
 	

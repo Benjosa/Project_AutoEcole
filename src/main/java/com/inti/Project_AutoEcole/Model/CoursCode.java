@@ -3,6 +3,8 @@ package com.inti.Project_AutoEcole.Model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -22,9 +24,11 @@ import lombok.NonNull;
 @Table
 @Data
 @NoArgsConstructor @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class CoursCode 
 {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private @NonNull String titre;
 	
