@@ -30,6 +30,12 @@ public class ClientController {
 		return new ResponseEntity<List<Client>>(us.getAllClient(),HttpStatus.OK);
 	}
 	
+	@GetMapping("/client/{id}")
+	public ResponseEntity<Client> getClient(@PathVariable int id)
+	{
+		return new ResponseEntity<Client>(us.getClient(id),HttpStatus.OK);
+	}
+	
 	@PostMapping("/saveClient")
 	public ResponseEntity<Client> saveClient(@RequestBody Client u)
 	{
