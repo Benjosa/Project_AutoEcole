@@ -16,9 +16,9 @@ public class FormateurServiceImpl implements FormateurService
 	FormateurRepository fr;
 
 	@Override
-	public void saveFormateur(Formateur formateur) 
+	public Formateur saveFormateur(Formateur formateur) 
 	{
-		fr.save(formateur);
+		return fr.save(formateur);
 		
 	}
 
@@ -30,21 +30,21 @@ public class FormateurServiceImpl implements FormateurService
 	}
 
 	@Override
-	public void updateClient(Formateur formateur) 
+	public Formateur updateFormateur(Formateur formateur) 
 	{
-		fr.save(formateur);
+		return fr.save(formateur);
 		
 	}
 
 	@Override
-	public Formateur getCLient(int id) 
+	public Formateur getFormateur(int id) 
 	{
 		
 		return fr.getReferenceById(id);
 	}
 
 	@Override
-	public void deleteClient(int id) 
+	public void deleteFormateur(int id) 
 	{
 		fr.deleteById(id);
 		

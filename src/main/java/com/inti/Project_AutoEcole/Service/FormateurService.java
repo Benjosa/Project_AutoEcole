@@ -6,11 +6,11 @@ import com.inti.Project_AutoEcole.Model.Formateur;
 
 public interface FormateurService 
 {
-	void saveFormateur(Formateur formateur);
+	Formateur saveFormateur(Formateur formateur);
 	List<Formateur> getAllFormateur();
-	void updateClient(Formateur formateur);
-	Formateur getCLient(int id);
-	void deleteClient(int id);
+	Formateur updateFormateur(Formateur formateur);
+	Formateur getFormateur(int id);
+	void deleteFormateur(int id);
 
 	
 }
