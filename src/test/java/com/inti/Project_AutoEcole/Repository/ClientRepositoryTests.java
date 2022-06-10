@@ -1,4 +1,4 @@
-package com.inti.Project_AutoEcole.Repository.Test;
+package com.inti.Project_AutoEcole.Repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
