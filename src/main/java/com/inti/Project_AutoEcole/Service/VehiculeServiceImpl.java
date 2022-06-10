@@ -14,28 +14,35 @@ public class VehiculeServiceImpl implements VehiculeService {
 	@Autowired
 	VehiculeRepository vr;
 	
+	
 	@Override
-	public void saveVehicule(Vehicule v) {
-		vr.save(v);
-	}
-
-	@Override
-	public List<Vehicule> getVehicules() {
-		
+	public List<Vehicule> getVehicules()
+	{
 		return vr.findAll();	
-		
+	}
+	
+	@Override
+	public Vehicule getVehiculeById(int id)
+	{
+		return vr.getReferenceById(id);
+	}
+	
+	@Override
+	public Vehicule saveVehicule(Vehicule v)
+	{
+		return vr.save(v);
 	}
 
 	@Override
-	public void deleteVehicule(int id) {
+	public void deleteVehicule(int id)
+	{
 		vr.deleteById(id);
-		
 	}
 
 	@Override
-	public void updateVehicule(Vehicule v) {
-		vr.save(v);
-		
+	public Vehicule updateVehicule(Vehicule v)
+	{
+		return vr.save(v);
 	}
 
 }

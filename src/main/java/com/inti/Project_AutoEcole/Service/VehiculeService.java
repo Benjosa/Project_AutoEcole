@@ -8,10 +8,12 @@ public interface VehiculeService {
 	
 	List<Vehicule> getVehicules();
 	
-	void saveVehicule (Vehicule v);
+	Vehicule getVehiculeById(int id);
+	
+	Vehicule saveVehicule (Vehicule v);
 	
 	void deleteVehicule (int id);
 	
-	void updateVehicule (Vehicule v);
+	Vehicule updateVehicule (Vehicule v);
 
 }
