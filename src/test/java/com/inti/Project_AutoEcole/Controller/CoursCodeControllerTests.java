@@ -3,6 +3,7 @@ package com.inti.Project_AutoEcole.Controller;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -12,7 +13,6 @@ import java.sql.Date;
 
 import com.inti.Project_AutoEcole.Json;
 import com.inti.Project_AutoEcole.Model.CoursCode;
-import com.inti.Project_AutoEcole.Repository.CoursCodeRepository;
 import com.inti.Project_AutoEcole.Service.CoursCodeService;
 
 import org.junit.jupiter.api.DisplayName;
@@ -45,9 +45,7 @@ public class CoursCodeControllerTests {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
 		}
-		
 	}
 	
 	@Test
@@ -77,17 +75,4 @@ public class CoursCodeControllerTests {
 		}
 	}
 	
-	@Test
-	@DisplayName("Test update cours")
-	public void updateCour()
-	{
-		try {
-			mockMvc.perform(post("/updateCour")
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(Json.fromObject(new CoursCode(5, "Cours test", null))))
-				.andExpect(status().isCreated());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 }

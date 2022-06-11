@@ -39,7 +39,7 @@ public class CoursCodeServiceImpl implements CoursCodeService{
 
 	@Override
 	public CoursCode getCour(int id) {
-		return coursCodeRepository.getById(id);
+		return coursCodeRepository.getReferenceById(id);
 	}
 	
 }
