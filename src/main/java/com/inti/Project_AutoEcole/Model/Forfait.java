@@ -30,6 +30,7 @@ public class Forfait
 	private @NonNull Double montant;
 	private @NonNull String contenu;
 	
+	
 	@OneToMany(mappedBy = "forfait")
 	List<Client> listeClient;
 	
