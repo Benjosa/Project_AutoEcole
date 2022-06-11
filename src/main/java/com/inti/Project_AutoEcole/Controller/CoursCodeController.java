@@ -1,11 +1,8 @@
 package com.inti.Project_AutoEcole.Controller;
 
 import java.util.List;
-
-
 import com.inti.Project_AutoEcole.Model.CoursCode;
 import com.inti.Project_AutoEcole.Service.CoursCodeService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

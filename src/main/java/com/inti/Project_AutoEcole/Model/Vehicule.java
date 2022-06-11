@@ -32,10 +32,6 @@ public class Vehicule
 	private @NonNull String plaqueImmatriculation;
 	private @NonNull String boiteVitesse;
 	
-	@OneToOne
-	@JoinColumn(name = "IdSeance")
-	SeanceConduite seanceConduite;
-	
 	
 	@ManyToMany
 	@JoinTable(name = "Formateur_Vehicule", joinColumns = @JoinColumn(name="idVehicule"),

@@ -1,7 +1,6 @@
 package com.inti.Project_AutoEcole.Model;
 
 import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,5 +30,13 @@ public class SeanceConduite
 	@OneToOne
 	@JoinColumn(name = "idVehicule")
 	Vehicule vehicule;
+	
+	@OneToOne
+	@JoinColumn(name = "idClient")
+	Client client;
+	
+	@OneToOne
+	@JoinColumn(name = "idFormateur")
+	Formateur formateur;
 
 }
