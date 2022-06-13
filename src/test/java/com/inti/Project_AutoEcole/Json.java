@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+
 public class Json
 {
 	public static String fromObject(Object o) throws JsonProcessingException {
@@ -13,5 +14,6 @@ public class Json
         ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
         return ow.writeValueAsString(o);
     }
+
 
 }
