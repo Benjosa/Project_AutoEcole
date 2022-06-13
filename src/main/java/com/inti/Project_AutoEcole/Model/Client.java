@@ -13,6 +13,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +27,7 @@ import lombok.RequiredArgsConstructor;
 @Table
 @Data
 @NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Client 
 {
 	@Id
@@ -34,26 +39,28 @@ public class Client
 	private @NonNull String mail;
 	private @NonNull String adresse;
 	
-	
+
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "idRole")
 	Role role;
 	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "Formateur_Client", joinColumns = @JoinColumn(name="idClient"),
 	inverseJoinColumns = @JoinColumn(name="idFormateur"))
 	List<Formateur> listeFormateur;
 	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "client_courscode", joinColumns = @JoinColumn(name="idClient"),
 	inverseJoinColumns = @JoinColumn(name="idCoursCode"))
-	List<CoursCode> listeCode;
+	List<CoursCode> listeCoursCode;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "idForfait")
 	Forfait forfait;
-	
-	
 	
 
 }

@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,8 +36,6 @@ public class Vehicule
 	private @NonNull String plaqueImmatriculation;
 	private @NonNull String boiteVitesse;
 	
-	
-	
 	public Vehicule(int id, @NonNull String marque, @NonNull String plaqueImmatriculation,
 			@NonNull String boiteVitesse) {
 		super();
@@ -46,8 +45,7 @@ public class Vehicule
 		this.boiteVitesse = boiteVitesse;
 	}
 
-
-
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "Formateur_Vehicule", joinColumns = @JoinColumn(name="idVehicule"),
 	inverseJoinColumns = @JoinColumn(name="idFormateur"))

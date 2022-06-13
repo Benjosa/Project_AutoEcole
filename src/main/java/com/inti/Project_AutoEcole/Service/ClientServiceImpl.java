@@ -13,41 +13,43 @@ import org.springframework.stereotype.Service;
 public class ClientServiceImpl implements ClientService 
 {
 	@Autowired
-	ClientRepository clienRepository;
+	ClientRepository clientRepository;
 
 	@Override
-	public void saveAdmin(Client admin) 
+	public void saveClient(Client admin) 
+  
+	public Client saveClient(Client admin) 
 	{
 		
-		clienRepository.save(admin);
-		
-	}
-
-	@Override
-	public List<Client> getAllAdmin() 
-	{
-		
-		return clienRepository.findAll();
-	}
-
-	@Override
-	public void updateAdmin(Client admin) 
-	{
-		clienRepository.save(admin);
+		return clientRepository.save(admin);
 		
 	}
 
 	@Override
-	public Client getAdmin(int id) 
+	public List<Client> getAllClient() 
 	{
 		
-		return clienRepository.getReferenceById(id);
+		return clientRepository.findAll();
 	}
 
 	@Override
-	public void deleteAdmin(int id) 
+	public Client updateClient(Client admin) 
 	{
-		clienRepository.deleteById(id);
+		return clientRepository.save(admin);
+		
+	}
+
+	@Override
+	public Client getClient(int id) 
+	{
+		
+		return clientRepository.getReferenceById(id);
+	}
+
+	@Override
+	public void deleteClient(int id) 
+	{
+		clientRepository.deleteById(id);
 		
 	}
 	
