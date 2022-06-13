@@ -32,5 +32,11 @@ public class SeanceConduite
 	@OneToOne
 	@JoinColumn(name = "idVehicule")
 	Vehicule vehicule;
+	@OneToOne
+	@JoinColumn(name = "idEleve")
+	Client client;
+	@OneToOne
+	@JoinColumn(name = "idFormateur")
+	Formateur formateur;
 
 }
