@@ -37,6 +37,7 @@ public class Formateur
 	private @NonNull String mail;
 	private @NonNull String adresse;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "idRole")
 	Role role;
