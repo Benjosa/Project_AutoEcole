@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,7 +39,8 @@ public class Client
 	private @NonNull String mail;
 	private @NonNull String adresse;
 	
-	
+
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "idRole")
 	Role role;
@@ -53,13 +55,12 @@ public class Client
 	@ManyToMany
 	@JoinTable(name = "client_courscode", joinColumns = @JoinColumn(name="idClient"),
 	inverseJoinColumns = @JoinColumn(name="idCoursCode"))
-	List<CoursCode> listeCode;
+	List<CoursCode> listeCoursCode;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "idForfait")
 	Forfait forfait;
-	
-	
 	
 
 }

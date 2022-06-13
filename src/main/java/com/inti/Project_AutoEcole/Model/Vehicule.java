@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,11 +34,7 @@ public class Vehicule
 	private @NonNull String plaqueImmatriculation;
 	private @NonNull String boiteVitesse;
 	
-	@OneToOne
-	@JoinColumn(name = "IdSeance")
-	SeanceConduite seanceConduite;
-	
-	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "Formateur_Vehicule", joinColumns = @JoinColumn(name="idVehicule"),
 	inverseJoinColumns = @JoinColumn(name="idFormateur"))

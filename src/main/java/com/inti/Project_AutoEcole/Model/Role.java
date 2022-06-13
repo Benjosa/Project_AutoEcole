@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,8 +28,10 @@ public class Role
 	private int id;
 	private @NonNull String nomRole;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "role")
 	List<Formateur> listeFormateur;
+	
 	
 	@OneToMany(mappedBy = "role")
 	List<Client> listeClient;
