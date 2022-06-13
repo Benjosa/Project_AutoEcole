@@ -6,10 +6,10 @@ import com.inti.Project_AutoEcole.Model.Client;
 
 public interface ClientService 
 {
-	void saveClient(Client client);
+	Client saveClient(Client client);
 	List<Client> getAllClient();
-	void updateClient(Client client);
-	Client getCLient(int id);
+	Client updateClient(Client client);
+	Client getClient(int id);
 	void deleteClient(int id);
 
 }

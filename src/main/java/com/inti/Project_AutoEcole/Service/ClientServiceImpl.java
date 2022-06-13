@@ -13,13 +13,15 @@ import org.springframework.stereotype.Service;
 public class ClientServiceImpl implements ClientService 
 {
 	@Autowired
-	ClientRepository clienRepository;
+	ClientRepository clientRepository;
 
 	@Override
 	public void saveClient(Client admin) 
+  
+	public Client saveClient(Client admin) 
 	{
 		
-		clienRepository.save(admin);
+		return clientRepository.save(admin);
 		
 	}
 
@@ -27,27 +29,27 @@ public class ClientServiceImpl implements ClientService
 	public List<Client> getAllClient() 
 	{
 		
-		return clienRepository.findAll();
+		return clientRepository.findAll();
 	}
 
 	@Override
-	public void updateClient(Client admin) 
+	public Client updateClient(Client admin) 
 	{
-		clienRepository.save(admin);
+		return clientRepository.save(admin);
 		
 	}
 
 	@Override
-	public Client getCLient(int id) 
+	public Client getClient(int id) 
 	{
 		
-		return clienRepository.getReferenceById(id);
+		return clientRepository.getReferenceById(id);
 	}
 
 	@Override
 	public void deleteClient(int id) 
 	{
-		clienRepository.deleteById(id);
+		clientRepository.deleteById(id);
 		
 	}
 	
