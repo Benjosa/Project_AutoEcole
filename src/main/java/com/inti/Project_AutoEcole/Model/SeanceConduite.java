@@ -36,7 +36,7 @@ public class SeanceConduite
 	@OneToOne
 	@JoinColumn(name = "idVehicule")
 	Vehicule vehicule;
-	
+
 	@OneToOne
 	@JoinColumn(name = "idClient")
 	Client client;

@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ import lombok.RequiredArgsConstructor;
 @Table
 @Data
 @NoArgsConstructor @AllArgsConstructor @RequiredArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Vehicule 
 {
 	@Id
@@ -34,6 +36,15 @@ public class Vehicule
 	private @NonNull String plaqueImmatriculation;
 	private @NonNull String boiteVitesse;
 	
+	public Vehicule(int id, @NonNull String marque, @NonNull String plaqueImmatriculation,
+			@NonNull String boiteVitesse) {
+		super();
+		this.id = id;
+		this.marque = marque;
+		this.plaqueImmatriculation = plaqueImmatriculation;
+		this.boiteVitesse = boiteVitesse;
+	}
+
 	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "Formateur_Vehicule", joinColumns = @JoinColumn(name="idVehicule"),
