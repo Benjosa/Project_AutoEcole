@@ -35,11 +35,19 @@ public class Vehicule
 	private @NonNull String plaqueImmatriculation;
 	private @NonNull String boiteVitesse;
 	
-	@OneToOne
-	@JoinColumn(name = "IdSeance")
-	SeanceConduite seanceConduite;
 	
 	
+	public Vehicule(int id, @NonNull String marque, @NonNull String plaqueImmatriculation,
+			@NonNull String boiteVitesse) {
+		super();
+		this.id = id;
+		this.marque = marque;
+		this.plaqueImmatriculation = plaqueImmatriculation;
+		this.boiteVitesse = boiteVitesse;
+	}
+
+
+
 	@ManyToMany
 	@JoinTable(name = "Formateur_Vehicule", joinColumns = @JoinColumn(name="idVehicule"),
 	inverseJoinColumns = @JoinColumn(name="idFormateur"))
