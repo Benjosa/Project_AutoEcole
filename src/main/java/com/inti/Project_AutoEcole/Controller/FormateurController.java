@@ -3,7 +3,6 @@ package com.inti.Project_AutoEcole.Controller;
 import java.util.List;
 
 import com.inti.Project_AutoEcole.Model.Formateur;
-import com.inti.Project_AutoEcole.Repository.FormateurRepository;
 import com.inti.Project_AutoEcole.Service.FormateurService;
 
 import org.springframework.beans.factory.annotation.Autowired;
