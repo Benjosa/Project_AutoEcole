@@ -2,7 +2,10 @@ package com.inti.Project_AutoEcole.Controller;
 
 import java.util.List;
 import com.inti.Project_AutoEcole.Model.SeanceConduite;
+import com.inti.Project_AutoEcole.Service.FormateurService;
 import com.inti.Project_AutoEcole.Service.SeanceConduiteService;
+import com.inti.Project_AutoEcole.Service.VehiculeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +24,12 @@ public class SeanceConduiteController {
 
 	@Autowired
 	SeanceConduiteService seanceConduiteService;
+	
+	@Autowired
+	VehiculeService vehiculeService;
+	
+	@Autowired
+	FormateurService formateurService;
 	
 	@GetMapping("/SeanceConduite")
 	@CrossOrigin(origins = "*")
@@ -52,5 +61,14 @@ public class SeanceConduiteController {
 	public SeanceConduite updateSeance(@RequestBody SeanceConduite seanceConduite)
 	{
 		return seanceConduiteService.updateSeance(seanceConduite);
+	}
+	
+	@PostMapping("/associerSeance/{idVehicule}/{idFormateur}")
+	public ResponseEntity<SeanceConduite>associerSeance(@RequestBody SeanceConduite seanceConduite,@PathVariable int idVehicule,@PathVariable int idFormateur)
+	{
+		seanceConduite.setVehicule(vehiculeService.getVehiculeById(idVehicule));
+		seanceConduite.setFormateur(formateurService.getFormateur(idFormateur));
+		System.out.println("Seance :" +seanceConduite);
+		return new ResponseEntity<SeanceConduite>(seanceConduiteService.saveSeance(seanceConduite), HttpStatus.CREATED);
 	}
 }
