@@ -10,6 +10,7 @@ public interface ClientService
 	List<Client> getAllClient();
 	Client updateClient(Client client);
 	Client getClient(int id);
+	Client getClientByNom(String nom);
 	void deleteClient(int id);
 
 }
