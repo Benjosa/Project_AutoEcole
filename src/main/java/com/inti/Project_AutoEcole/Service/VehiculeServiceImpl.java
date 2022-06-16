@@ -45,4 +45,9 @@ public class VehiculeServiceImpl implements VehiculeService {
 		return vr.save(v);
 	}
 
+	@Override
+	public Vehicule getVehiculeByPlaque(String plaque) {
+		return vr.getVehiculeByPlaque(plaque);
+	}
+
 }

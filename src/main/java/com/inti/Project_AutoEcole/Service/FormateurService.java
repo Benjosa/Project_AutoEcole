@@ -10,6 +10,7 @@ public interface FormateurService
 	List<Formateur> getAllFormateur();
 	Formateur updateFormateur(Formateur formateur);
 	Formateur getFormateur(int id);
+	Formateur getFormateurByNom(String nom);
 	void deleteFormateur(int id);
 
 	
