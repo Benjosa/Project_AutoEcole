@@ -64,7 +64,13 @@ public class SeanceConduiteController {
 		return seanceConduiteService.updateSeance(seanceConduite);
 	}
 	
-	
-		
+	@PostMapping("/associerSeance/{idVehicule}/{idFormateur}")
+	public ResponseEntity<SeanceConduite>associerSeance(@RequestBody SeanceConduite seanceConduite,@PathVariable int idVehicule,@PathVariable int idFormateur)
+	{
+		seanceConduite.setVehicule(vehiculeService.getVehiculeById(idVehicule));
+		seanceConduite.setFormateur(formateurService.getFormateur(idFormateur));
+		System.out.println("Seance :" +seanceConduite);
+		return new ResponseEntity<SeanceConduite>(seanceConduiteService.saveSeance(seanceConduite), HttpStatus.CREATED);
+	}
 	
 }
