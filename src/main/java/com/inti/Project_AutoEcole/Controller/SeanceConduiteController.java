@@ -2,6 +2,7 @@ package com.inti.Project_AutoEcole.Controller;
 
 import java.util.List;
 import com.inti.Project_AutoEcole.Model.SeanceConduite;
+import com.inti.Project_AutoEcole.Service.ClientService;
 import com.inti.Project_AutoEcole.Service.FormateurService;
 import com.inti.Project_AutoEcole.Service.SeanceConduiteService;
 import com.inti.Project_AutoEcole.Service.VehiculeService;
@@ -30,6 +31,9 @@ public class SeanceConduiteController {
 	
 	@Autowired
 	FormateurService formateurService;
+	
+	@Autowired
+	ClientService clientService;
 	
 	@GetMapping("/SeanceConduite")
 	@CrossOrigin(origins = "*")
@@ -63,11 +67,12 @@ public class SeanceConduiteController {
 		return seanceConduiteService.updateSeance(seanceConduite);
 	}
 	
-	@PostMapping("/associerSeance/{plVehicule}/{nomFormateur}")
-	public ResponseEntity<SeanceConduite>associerSeance(@RequestBody SeanceConduite seanceConduite,@PathVariable String plVehicule,@PathVariable String nomFormateur)
+	@PostMapping("/associerSeance/{plVehicule}/{nomFormateur}/{nomClient}")
+	public ResponseEntity<SeanceConduite>associerSeance(@RequestBody SeanceConduite seanceConduite,@PathVariable String plVehicule,@PathVariable String nomFormateur,@PathVariable String nomClient)
 	{
 		seanceConduite.setVehicule(vehiculeService.getVehiculeByPlaque(plVehicule));
 		seanceConduite.setFormateur(formateurService.getFormateurByNom(nomFormateur));
+		seanceConduite.setClient(clientService.getClientByNom(nomClient));
 		System.out.println("Seance :" +seanceConduite);
 		return new ResponseEntity<SeanceConduite>(seanceConduiteService.saveSeance(seanceConduite), HttpStatus.CREATED);
 	}
