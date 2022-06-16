@@ -16,12 +16,9 @@ public class ClientServiceImpl implements ClientService
 	ClientRepository clientRepository;
 
 	@Override
-  
 	public Client saveClient(Client admin) 
 	{
-		
 		return clientRepository.save(admin);
-		
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.inti.Project_AutoEcole.Model.Client;
 import com.inti.Project_AutoEcole.Service.ClientService;
+import com.inti.Project_AutoEcole.Service.ForfaitService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,9 @@ public class ClientController {
 
 	@Autowired
 	ClientService us;
+	
+	@Autowired
+	ForfaitService fs;
 	
 	@GetMapping("/clients")
 	public ResponseEntity<List<Client>> getAllClients()
@@ -53,4 +57,13 @@ public class ClientController {
 	{
 		return us.updateClient(u);
 	}
+	
+	@PostMapping("associerClientForfait/{id}")
+	public ResponseEntity<Client> associerClientForfait (@RequestBody Client u, @PathVariable int id)
+	{
+		u.setForfait(fs.getForfait(id));
+		
+		return new ResponseEntity<Client>(us.saveClient(u),HttpStatus.CREATED);
+	}
+	
 }
