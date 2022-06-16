@@ -15,9 +15,7 @@ public class ClientServiceImpl implements ClientService
 	@Autowired
 	ClientRepository clientRepository;
 
-	@Override
-	public void saveClient(Client admin) 
-  
+	@Override  
 	public Client saveClient(Client admin) 
 	{
 		

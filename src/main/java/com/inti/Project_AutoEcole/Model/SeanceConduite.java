@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,13 +33,16 @@ public class SeanceConduite
 	private @NonNull Time heureDebutSeance;
 	private @NonNull Time heureFinSeance;
 	
+	
 	@OneToOne
 	@JoinColumn(name = "idVehicule")
 	Vehicule vehicule;
 
+	
 	@OneToOne
 	@JoinColumn(name = "idClient")
 	Client client;
+	
 	
 	@OneToOne
 	@JoinColumn(name = "idFormateur")

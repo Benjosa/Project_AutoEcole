@@ -2,7 +2,10 @@ package com.inti.Project_AutoEcole.Controller;
 
 import java.util.List;
 import com.inti.Project_AutoEcole.Model.SeanceConduite;
+import com.inti.Project_AutoEcole.Service.FormateurService;
 import com.inti.Project_AutoEcole.Service.SeanceConduiteService;
+import com.inti.Project_AutoEcole.Service.VehiculeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +25,12 @@ public class SeanceConduiteController {
 	@Autowired
 	SeanceConduiteService seanceConduiteService;
 	
+	@Autowired
+	FormateurService formateurService;
+	
+	@Autowired
+	VehiculeService vehiculeService;
+	
 	@GetMapping("/SeanceConduite")
 	@CrossOrigin(origins = "*")
 	public ResponseEntity<List<SeanceConduite>> getAllSeances()
@@ -38,7 +47,9 @@ public class SeanceConduiteController {
 	@PostMapping("/saveSeance")
 	public ResponseEntity<SeanceConduite>saveSeance(@RequestBody SeanceConduite seanceConduite)
 	{
+		System.out.println(seanceConduite);
 		return new ResponseEntity<SeanceConduite>(seanceConduiteService.saveSeance(seanceConduite), HttpStatus.CREATED);
+		
 	}
 	
 	@DeleteMapping("/deleteSeance/{id}")
@@ -53,4 +64,6 @@ public class SeanceConduiteController {
 	{
 		return seanceConduiteService.updateSeance(seanceConduite);
 	}
+	
+	
 }

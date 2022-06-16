@@ -15,4 +15,6 @@ public interface SeanceConduiteService {
 	
 	SeanceConduite getSeance(int id);
 	
+	
+	
 }
