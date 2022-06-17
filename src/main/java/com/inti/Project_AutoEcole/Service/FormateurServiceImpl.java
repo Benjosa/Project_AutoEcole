@@ -50,4 +50,9 @@ public class FormateurServiceImpl implements FormateurService
 		
 	}
 
+	@Override
+	public Formateur getFormateurByNom(String nom) {
+		return fr.getFormateurByNom(nom);
+	}
+
 }

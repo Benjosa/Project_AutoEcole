@@ -15,5 +15,7 @@ public interface VehiculeService {
 	void deleteVehicule (int id);
 	
 	Vehicule updateVehicule (Vehicule v);
+	
+	Vehicule getVehiculeByPlaque(String plaque);
 
 }
